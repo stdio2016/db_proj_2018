@@ -5,7 +5,7 @@
 
   <div style="border-radius: 5px; background-color: lightgray; padding: 5px 30px;">
     <?php
-        echo '<h3>'.$event_info->name.'</h3>';
+        echo '<h3>'.htmlspecialchars($event_info->name).'</h3>';
         echo '<p>報名隊伍數：'.count($event_teams).'/'.$event_info->team_limit.'</h4>';
         echo '<p>人數限制：'.$event_info->team_size_limit.'</p>';
     ?>
