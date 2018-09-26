@@ -17,7 +17,7 @@
             <tr>
                 <td>項目</td>
                 <td class="date">日期</td>
-                <?php if (Auth::isLogin()) echo '<td style="width:60px;">報名</td>'; ?>
+                <td style="width:60px;">報名</td>
                 <?php
                 if(Auth::isAdmin())
                 {
@@ -30,7 +30,7 @@
                 <tr>
                     <td><?php if (isset($event->name)) echo htmlspecialchars($event->name); ?></td>
                     <td><?php if (isset($event->date)) echo $event->date; ?></td>
-                    <?php if (Auth::isLogin()) echo '<td style="text-align:center;"><a class="button cyan" href="'.URL.'events/signup/' . $event->id . '">報名</a></td>' ; ?>
+                    <td style="text-align:center;"><a class="button cyan" href="<?= URL.'events/signup/' . $event->id ?>">報名</a></td>
                     <?php
                     if(Auth::isAdmin())
                     {

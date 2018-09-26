@@ -16,6 +16,7 @@
     <?php } ?>
   </div>
 
+<?php if (Auth::isLogin()) { ?>
  <form onsubmit="submit_team(); return false;">
      <p>
      <label>隊伍名稱</label>
@@ -37,4 +38,7 @@
      <span id="error_msg"></span><br>
      <button class="blue button" type="button" id="submit_team">提交報名表</button>
      <button class="red button delete_confirm" href="<?php echo URL.'events/delete_signup/'.$event_info->id;?>">刪除報名表</button>
+<?php } else { ?>
+  <p>要報名此活動前，請先<a href="<?=URL?>login">登入</a></p>
+<?php } ?>
 </section>

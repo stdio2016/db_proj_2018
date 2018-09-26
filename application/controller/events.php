@@ -158,8 +158,11 @@ class Events extends Controller
 
     public function signup($event_id)
     {
+        // unregistered user can see rules of an event
+        /*
         if (!Auth::isLogin())
             $this->redirectToHome();
+        */
 
         $events_model = $this->loadModel('EventsModel');
         $event_info = $events_model->getEvent($event_id);
