@@ -6,7 +6,7 @@
         if(Auth::isAdmin())
         {
             ?>
-            <a style="float:right;" class="button blue" href="<?php echo URL . 'anncs/add' ; ?>">新增公告</a><br>
+            <a style="float:right; margin-bottom:5px;" class="button blue" href="<?php echo URL . 'anncs/add' ; ?>">新增公告</a><br>
         <?php
         }
         ?>
