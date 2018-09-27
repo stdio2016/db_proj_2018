@@ -49,6 +49,7 @@ class Anncs extends Controller
             $anncs_model=$this->loadModel('AnncsModel');
             $anncs_model->addAnnc($_POST["title"], $_POST["date"],  $_POST["description"]);
             header('location: ' . URL . 'anncs/index');
+            Msg::SetMsg("Announcement added");
             exit();
         }
 
@@ -57,6 +58,30 @@ class Anncs extends Controller
         require 'application/views/_templates/footer.php';
     }
 
+    public function edit($annc_id)
+    {
+        if(!Auth::isAdmin())
+        {
+            header('location: ' . URL . 'anncs/index');
+            exit();
+        }
+
+        // if we have POST data to create a new song entry
+        if (isset($_POST["submit_edit_anncs"])) {
+            // load model, perform an action on the model
+            $anncs_model=$this->loadModel('AnncsModel');
+            $anncs_model->editAnnc($annc_id, $_POST["title"], $_POST["date"],  $_POST["description"]);
+            header('location: ' . URL . 'anncs/index');
+            Msg::SetMsg("Announcement updated");
+            exit();
+        }
+        
+        $anncs_model=$this->loadModel('AnncsModel');
+        $annc = $anncs_model->getAnnc($annc_id);
+        require 'application/views/_templates/header.php';
+        require 'application/views/anncs/edit.php';
+        require 'application/views/_templates/footer.php';
+    }
 
     public function delete($annc_id)
     {

@@ -55,4 +55,11 @@ class AnncsModel
         $query = $this->db->prepare($sql);
         $query->execute(array(':annc_id' => $annc_id));
     }
+
+    public function editAnnc($annc_id, $title, $date, $descritpion)
+    {
+        $sql = "UPDATE anncs SET title=:title, `date`=:date, description=:description WHERE id = :annc_id";
+        $query = $this->db->prepare($sql);
+        $query->execute(array(':title' => $title, ':date' => $date, ':description' => $descritpion, ':annc_id' => $annc_id));
+    }
 }
